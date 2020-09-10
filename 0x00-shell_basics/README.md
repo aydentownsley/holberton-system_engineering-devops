@@ -1,5 +1,3 @@
 # README
 
-## project files
-
-The files in this directory contain scripts that run challenges given in the project
+The files included in this directory all contain bash scripts that execute code to meet the requirements set out in shell basics
