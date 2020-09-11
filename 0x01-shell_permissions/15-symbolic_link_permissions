@@ -1,2 +1,2 @@
 #1/bin/bash
-chown -h betty:holberton hello
+chown --no-deference betty:holberton _hello
