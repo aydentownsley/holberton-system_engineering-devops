@@ -1,2 +1,2 @@
 #!/bin/bash
-num=$(echo $PATH | grep ":" -o | wc -l) | echo $(($num+1))
+num=$(echo $PATH | grep ":" | wc -l) | echo $(($num+1))
