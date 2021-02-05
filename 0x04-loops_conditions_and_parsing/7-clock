@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Prints minutes and hours of clock
+m=0
+h=0
+while [ $m -le 60 ]
+do
+	if [ $h -le 12 ]
+	then
+		case $m in
+			0)
+				echo "Hour: $h"
+				h=$(( h + 1 ))
+				;;
+			60)
+				m=-1
+				;;
+			*)
+				echo $m
+				;;
+		esac
+	fi
+	m=$(( m + 1 ))
+done
