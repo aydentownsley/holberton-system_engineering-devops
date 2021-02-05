@@ -4,12 +4,17 @@ m=0
 h=0
 while [ $m -le 60 ]
 do
-	if [ $h -le 12 ]
+	if [ $h -le 13 ]
 	then
 		case $m in
 			0)
-				echo "Hour: $h"
-				h=$(( h + 1 ))
+				if [ $h -le 12 ]
+				then
+					echo "Hour: $h"
+					h=$(( h + 1 ))
+				else
+					h=$(( h + 1 ))
+				fi
 				;;
 			60)
 				m=-1
