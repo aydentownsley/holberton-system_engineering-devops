@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Prints bash proccess info
+# shellcheck disable=SC2009
+ps -uaxf | awk '$12 ~ "bash"'
