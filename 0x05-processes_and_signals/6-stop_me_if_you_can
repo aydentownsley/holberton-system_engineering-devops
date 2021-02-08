@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# kills problem 4
+pkill -f bash
