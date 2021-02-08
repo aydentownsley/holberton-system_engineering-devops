@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# infine loop with print when sigterm recieved
+while :
+do
+	trap 'echo I am invincible!!!' SIGTERM
+	echo "To infinity and beyond"
+	sleep 2
+done
