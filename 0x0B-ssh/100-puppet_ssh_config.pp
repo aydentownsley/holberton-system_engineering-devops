@@ -1,13 +1,14 @@
 #!/usr/bin/puppet
 #Setting up serv to connect w/o pwd
 
-augeas { 'id file':
-  context => '/etc/ssh/ssh_config',
-  changes => 'set IdentityFile ~/.ssh/holberton',
+file_line { 'indentity_file':
+  ensure => present,
+  line   => 'IdentityFile ~/.ssh/holberton',
+  path   => '/etc/ssh/ssh_config',
 }
 
-augeas { 'pwd auth':
-  context => '/etc/ssh/ssh_config',
-  changes => 'set PasswordAuthentication no',
+file_line { 'pwd_aut':
+  ensure => present,
+  line   => 'PasswordAuthentication no',
+  path   => '/etc/ssh/ssh_config',
 }
-
