@@ -2,7 +2,5 @@
 apt update
 apt install -y nginx
 touch /var/www/html/index.html
-chmod 766 /var/www/html/index.html
 echo "Holberton School" > /var/www/html/index.html
-chmod 744 /var/www/html/index.html
 service nginx restart
