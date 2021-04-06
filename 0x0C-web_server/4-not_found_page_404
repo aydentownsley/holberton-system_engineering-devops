@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+apt update
+apt install -y nginx
+touch /var/www/html/index.html
+echo "Holberton School" > /var/www/html/index.html
+touch /var/www/html/error404.html
+echo "Ceci n'est pas une page" > /var/www/html/error404.html
+string="server_name aydentownsley.tech;\n\tlocation \/redirect_me {\n\t\treturn 301 https:\/\/www.youtube.com\/watch\?v=QH2-TGUlwu4;\n\t}"
+err404="\terror_page 404 \/error404.html;\n\tlocation = \/error404.html {\n\t\tinternal;\n\t}"
+both="${string}\n${err404}"
+sed -i "s/server_name _;/$both/" /etc/nginx/sites-available/default
+service nginx restart
