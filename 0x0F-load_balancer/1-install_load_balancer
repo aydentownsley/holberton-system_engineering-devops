@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # setting up HAProxy
 apt-get update
-apt-get install -y haproxy=1.8.\*
+apt-get install -y haproxy=1.6.\*
 echo "ENABLED=1" >> /etc/default/haproxy
 setup="frontend http
 	bind *:80
