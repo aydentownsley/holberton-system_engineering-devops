@@ -1,3 +1,4 @@
+#!/usr/bin/puppet
 # adding custom response header
 package { 'nginx':
   ensure => installed
