@@ -1,14 +1,21 @@
 # adding custom response header
+
+exec { 'update':
+  command => 'apt-get update',
+  provider => '/usr/bin/bash',
+}
+->
 package { 'nginx':
   ensure => installed,
 }
-
-file_line { 'add_header':
-  path  => '/etc/nginx/nginx.conf',
-  line  => 'http {  add_header X-Served-By $hostname;',
-  match => 'http {',
+->
+file { 'add_header':
+  esnure => present,
+  path  => /etc/nginx/sites-available/default,
+  after => 'listen 80 default_server',
+  line => 'add_header X-Served-By $hostname;',
 }
-
+->
 service { 'nginx':
   ensure  => running,
   restart => true,
