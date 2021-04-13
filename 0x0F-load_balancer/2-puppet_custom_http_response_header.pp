@@ -5,7 +5,7 @@ package { 'nginx':
 
 nginx::resource::vhost {
 add_header=> {
-	'X-Served-By' => '',
+	'X-Served-By' => '$hostname',
 }
 
 service { 'nginx':
