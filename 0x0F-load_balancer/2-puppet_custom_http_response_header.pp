@@ -3,9 +3,8 @@ package { 'nginx':
   ensure => installed
 }
 
-exec {
+exec { 'add header':
   command => "sed -i 's/http {/http {\n\tadd_header X-Served-By \$hostname;\n/' /etc/nginx/nginx.conf",
-  path    => '/bin',
 }
 
 service { 'nginx':
