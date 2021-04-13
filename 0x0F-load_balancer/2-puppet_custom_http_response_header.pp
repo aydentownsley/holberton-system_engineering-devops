@@ -3,9 +3,8 @@ package { 'nginx':
 	ensure => installed
 }
 
-nginx::resource::vhost {
-add_header=> {
-	'X-Served-By' => '$hostname',
+file_line {
+	command => 'sed -i "s/http {/http {\n\tadd_header X-Served-By \$hostname;\n/"' /etc/nginx/nginx.conf
 }
 
 service { 'nginx':
