@@ -4,7 +4,8 @@ package { 'nginx':
 }
 
 exec {
-  command => "sed -i 's/http {/http {\n\tadd_header X-Served-By \$hostname;\n/' /etc/nginx/nginx.conf"
+  command => "sed -i 's/http {/http {\n\tadd_header X-Served-By \$hostname;\n/' /etc/nginx/nginx.conf",
+  path    => '/bin',
 }
 
 service { 'nginx':
