@@ -4,7 +4,7 @@ package { 'nginx':
 }
 
 exec { 'addheader':
-  command => "sed -i 's|http {|http {\\n\\tadd_header X-Served-By \$hostname;\\n|' /etc/nginx/nginx.conf",
+  command => "sed -i 's\http {\http {\\n\\tadd_header X-Served-By \$hostname;\\n\' /etc/nginx/nginx.conf",
 }
 
 service { 'nginx':
