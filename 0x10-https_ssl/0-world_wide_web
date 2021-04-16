@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#display subdom info
+
+func () {
+	subdom="${1}.${2}"
+	dig "$subdom" | awk -v dom="$1" '/ANSWER SECTION:/{getline; print "The subdomain "dom" is a "$4" record and points to "$5}'
+}
+
+if [ "$#" -lt 2 ]
+then
+	func "www" "$1"
+	func "lb-01" "$1"
+	func "web-01" "$1"
+	func "web-02" "$1"
+else
+	func "$2" "$1"
+fi
