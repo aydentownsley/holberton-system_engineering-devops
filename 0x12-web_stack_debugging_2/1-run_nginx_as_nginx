@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#changes user
+sudo sed -i 's/#user www-data;/user nginx;/' /etc/nginx/nginx.conf
+sudo sergice nginx restart
