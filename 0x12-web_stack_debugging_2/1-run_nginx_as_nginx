@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 #changes user
+chown nginx:nginx /etc/nginx/nginx.conf
+chmod 0700 /etc/nginx/nginx.conf
 sudo sed -i 's/#user www-data;/user nginx;/' /etc/nginx/nginx.conf
+pkill apache2
 sudo service nginx restart
