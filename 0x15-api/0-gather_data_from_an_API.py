@@ -15,15 +15,15 @@ if __name__ == "__main__":
     with request.urlopen(req) as resp:
         data = json.loads(resp.read().decode('utf-8'))
         for x in data:
-            if x['userId'] == int(sys.argv[1]):
+            if x.get('userId') == int(sys.argv[1]):
                 tasks += 1
-                if x['completed'] is True:
+                if x.get('completed') is True:
                     tasks_comp += 1
 
     with request.urlopen(req_user) as resu:
         data = json.loads(resu.read().decode('utf-8'))
         for k in data:
-            if k['id'] == int(sys.argv[1]):
+            if k.get('id') == int(sys.argv[1]):
                 name = k['name']
 
     print('Employee {} is done with tasks({}/{}):'.format(name,
@@ -32,6 +32,6 @@ if __name__ == "__main__":
     with request.urlopen(req) as resp:
         data = json.loads(resp.read().decode('utf-8'))
         for x in data:
-            if x['userId'] == int(sys.argv[1]):
-                if x['completed'] is True:
+            if x.get('userId') == int(sys.argv[1]):
+                if x.get('completed') is True:
                     print('\t {}'.format(x['title']))
