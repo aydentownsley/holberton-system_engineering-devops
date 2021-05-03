@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+# Grabs info from API
 import json
 import sys
 from urllib import request
