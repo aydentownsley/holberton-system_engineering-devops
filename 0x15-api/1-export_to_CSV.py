@@ -26,5 +26,5 @@ if __name__ == "__main__":
             write = csv.writer(file, quoting=csv.QUOTE_ALL)
             for x in data:
                 if x.get('userId') == int(sys.argv[1]):
-                        write.writerow([sys.argv[1], name, x.get('completed'), x.get('title')])
-
+                        write.writerow([sys.argv[1], name,
+                                       x.get('completed'), x.get('title')])
