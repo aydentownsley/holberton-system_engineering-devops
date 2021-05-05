@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     with request.urlopen(req) as res:
         data = json.loads(res.read().decode('utf-8'))
-        for i in range(1, 10):
+        for i in range(1, 11):
             list_of_dict = []
             for k in data:
                 if k.get('userId') == i:
