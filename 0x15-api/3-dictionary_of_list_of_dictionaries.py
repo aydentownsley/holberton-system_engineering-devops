@@ -26,8 +26,8 @@ if __name__ == "__main__":
             for k in data:
                 if k.get('userId') == i:
                     list_of_dict.append({"username": names[i - 1],
-                                        "task": k.get('title'),
-                                        "completed": k.get('completed')})
+                                         "task": k.get('title'),
+                                         "completed": k.get('completed')})
                 dict_to_json[i] = list_of_dict
         with open('todo_all_employees.json', 'w') as file:
             json.dump(dict_to_json, file)
