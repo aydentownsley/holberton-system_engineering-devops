@@ -30,5 +30,6 @@ if __name__ == "__main__":
                                   "username": name})
 
     dict_to_json[sys.argv[1]] = task_list
-    json_dump = json.dumps(dict_to_json)
-    print(json_dump)
+
+    with open('{}.json'.format(sys.argv[1]), 'w') as file:
+        json.dump(dict_to_json, file)
