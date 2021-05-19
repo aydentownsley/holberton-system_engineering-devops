@@ -7,7 +7,7 @@ import requests
 def recurse(subreddit, hot_list=[], after=None, count=0):
     """ recursive all hot titles """
     headers = {'User-Agent': 'test'}
-    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=500".format(subreddit)
     sub_res = requests.get(url, headers=headers)
     if count > 1 and after is None:
         return (hot_list)
@@ -22,8 +22,9 @@ def recurse(subreddit, hot_list=[], after=None, count=0):
         else:
             return (None)
     else:
-        url_next = "https://www.reddit.com/r/{}/hot.json?after={}".format(
-               subreddit, after)
+        url = "https://www.reddit.com"
+        url_next = url + "/r/{}/hot.json?after={}&limit=500".format(
+                   subreddit, after)
         next_el = requests.get(url_next, headers=headers)
         for el in next_el.json().get("data").get("children"):
             hot_list.append(el.get("data").get("title"))
