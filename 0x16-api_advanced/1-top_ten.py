@@ -15,4 +15,4 @@ def top_ten(subreddit):
             print(el.get('data').get('title'))
 
     else:
-        return (0)
+        print(None)
